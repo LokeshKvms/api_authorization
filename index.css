@@ -1,0 +1,211 @@
+* {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f8ff !important;
+}
+
+.container {
+  border: 1px solid #3498db;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+h1,
+label,
+h2 {
+  color: #34495e;
+  margin: 0;
+}
+
+hr {
+  border: 1px solid #3498db;
+  margin-top: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#addContactBtn {
+  padding: 10px 20px;
+  background-color: #496e94;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  border-radius: 8px;
+}
+
+#addContactBtn i {
+  font-size: 16px;
+}
+
+#addContactBtn:hover {
+  background-color: #2980b9;
+}
+
+.contacts-container {
+  margin-top: 20px;
+}
+
+#studentTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#studentTable th,
+#studentTable td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+}
+
+#studentTable th {
+  cursor: pointer;
+  background-color: #f0f8ff;
+}
+
+button {
+  padding: 6px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+}
+
+button.editBtn,
+button.deleteBtn {
+  width: 48%;
+  display: inline-block;
+}
+
+button.editBtn {
+  background-color: #f39c12;
+  color: white;
+}
+
+button.editBtn:hover {
+  background-color: #e67e22;
+}
+
+button.deleteBtn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.deleteBtn:hover {
+  background-color: #c0392b;
+}
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+button#cancelBtn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button#cancelBtn:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #addContactBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .contacts-container {
+    overflow-x: auto;
+  }
+
+  #studentTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  button.editBtn,
+  button.deleteBtn {
+    width: 48%;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #studentTable th,
+  #studentTable td {
+    padding: 8px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px auto;
+}
