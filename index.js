@@ -12,6 +12,7 @@ let sortOrder = {
   name: "ascending",
   email: "ascending",
   phone: "ascending",
+  dob: "ascending",
 };
 
 const tableBody = document.querySelector("#studentTable tbody");
@@ -124,18 +125,32 @@ function sortStudents(field) {
     name: (s) => `${s.first_name} ${s.last_name}`,
     email: (s) => s.email,
     phone: (s) => s.phone,
+    dob: (s) => s.dob, 
   };
 
   sortOrder[field] =
     sortOrder[field] === "ascending" ? "descending" : "ascending";
 
-  students.sort((a, b) => {
+  const dataToSort = isFiltering ? filteredStudents : students;
+
+  dataToSort.sort((a, b) => {
     const valA = fieldMap[field](a).toLowerCase();
     const valB = fieldMap[field](b).toLowerCase();
+
+    if (field === "dob") {
+      const dateA = new Date(a.dob);
+      const dateB = new Date(b.dob);
+      return sortOrder[field] === "ascending" ? dateA - dateB : dateB - dateA;
+    }
+
     return sortOrder[field] === "ascending"
       ? valA.localeCompare(valB)
       : valB.localeCompare(valA);
   });
+
+  if (isFiltering) {
+    filteredStudents = [...dataToSort];
+  }
 
   updateSortIcons(field);
   displayStudents();
@@ -158,7 +173,8 @@ document.getElementById("searchBox").addEventListener("input", (e) => {
         (s) =>
           `${s.first_name} ${s.last_name}`.toLowerCase().includes(term) ||
           s.email.toLowerCase().includes(term) ||
-          s.phone.includes(term)
+          s.phone.includes(term) ||
+          s.dob.includes(term) 
       )
     : [];
 
