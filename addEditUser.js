@@ -4,13 +4,17 @@ let authToken = "";
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("id");
 
+document.getElementById("profileImg").addEventListener("click", () => {
+  document.getElementById("profile").click();
+});
+
 document.getElementById("profile").addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (file) {
     document.getElementById("profileImg").src = URL.createObjectURL(file);
-    document.getElementById("profileFileName").value = file.name;
+    document.getElementById("profileFileName").textContent = file.name;
   } else {
-    document.getElementById("profileFileName").value = "";
+    document.getElementById("profileFileName").textContent = "";
   }
 });
 
@@ -55,7 +59,7 @@ function fillForm(user) {
 
   if (user.profile) {
     document.getElementById("profileImg").src = user.profile;
-    document.getElementById("profileFileName").value = user.profile
+    document.getElementById("profileFileName").textContent = user.profile
       .split("/")
       .pop();
   }
@@ -81,7 +85,7 @@ document.getElementById("userForm").addEventListener("submit", async (e) => {
     profile:
       document.getElementById("profile").files.length > 0
         ? document.getElementById("profile").files[0].name
-        : document.getElementById("profileFileName").value,
+        : document.getElementById("profileFileName").textContent,
   };
 
   const method = userId ? "PATCH" : "POST";
