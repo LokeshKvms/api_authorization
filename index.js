@@ -77,13 +77,13 @@ function displayStudents() {
       <td>${student.dob}</td>
       <td>${student.gender || ""}</td>
       <td>${student.address}</td>
-      <td>
+      <td class="d-flex justify-content-evenly align-baseline">
         <a href="addEditUser.html?id=${
           student.id
-        }" class="btn btn-warning btn-sm mb-1 mt-0">Edit</a>
+        }" class="btn btn-warning btn px-3 me-1">Edit</a>
         <button onclick="deleteStudent('${
           student.id
-        }')" class="btn btn-danger btn-sm m-1 mb-0">Delete</button>
+        }')" class="btn btn-danger btn-sm">Delete</button>
       </td>
     `;
     tableBody.appendChild(row);

@@ -1,30 +1,23 @@
 * {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #f0f8ff !important;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
+  background-color: white;
   border: 1px solid #3498db;
   border-radius: 15px;
-  background-color: white;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-h1,
-label,
-h2 {
-  color: #34495e;
-  margin: 0;
-}
-
-hr {
-  border: 1px solid #3498db;
-  margin-top: 20px;
+  padding: 2rem;
+  max-width: 88%;
+  margin: auto;
 }
 
 header {
@@ -32,38 +25,85 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
-#addContactBtn {
-  padding: 10px 20px;
-  background-color: #496e94;
+h1,
+h2,
+label {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  border: 1px solid #3498db;
+  margin-top: 20px;
+}
+
+a.btn-primary,
+button,
+input[type="submit"] {
+  background-color: #3498db;
   color: white;
   border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1rem;
+  padding: 10px 16px;
   border-radius: 8px;
+  transition: background-color 0.3s;
 }
 
-#addContactBtn i {
-  font-size: 16px;
-}
-
-#addContactBtn:hover {
+a.btn-primary:hover,
+button:hover,
+input[type="submit"]:hover {
   background-color: #2980b9;
 }
 
-.contacts-container {
-  margin-top: 20px;
+.btn-warning {
+  background-color: #f39c12;
+  color: white;
+}
+.btn-warning:hover {
+  background-color: #e67e22;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.search-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #3498db;
+  outline: none;
 }
 
 #studentTable {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  margin-top: 1rem;
 }
 
 #studentTable th,
@@ -75,131 +115,38 @@ header {
 }
 
 #studentTable th {
+  background-color: #eaf4fb;
   cursor: pointer;
-  background-color: #f0f8ff;
+  color: #2c3e50;
 }
 
-button {
+.actions button {
+  margin: 0 4px;
   padding: 6px 10px;
   font-size: 12px;
-  cursor: pointer;
-  white-space: nowrap;
-  text-align: center;
-  border-radius: 4px;
-  border: none;
 }
 
-button.editBtn,
-button.deleteBtn {
-  width: 48%;
-  display: inline-block;
+#pagination .page-item .page-link {
+  color: #3498db;
+  border: 1px solid #3498db;
+  margin: 0 2px;
 }
-
-button.editBtn {
-  background-color: #f39c12;
-  color: white;
-}
-
-button.editBtn:hover {
-  background-color: #e67e22;
-}
-
-button.deleteBtn {
-  background-color: #e74c3c;
-  color: white;
-}
-
-button.deleteBtn:hover {
-  background-color: #c0392b;
-}
-
-.search-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="number"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus {
-  border-color: #3498db;
-  outline: none;
-}
-
-.modal-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-button[type="submit"] {
+#pagination .page-item.active .page-link {
   background-color: #3498db;
   color: white;
+  border-color: #3498db;
 }
 
-button[type="submit"]:hover {
+#pagination .page-link:hover {
   background-color: #2980b9;
-}
-
-button#cancelBtn {
-  background-color: #e74c3c;
   color: white;
+  border-color: #2980b9;
 }
 
-button#cancelBtn:hover {
-  background-color: #c0392b;
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #addContactBtn {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .contacts-container {
-    overflow-x: auto;
-  }
-
-  #studentTable {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  button.editBtn,
-  button.deleteBtn {
-    width: 48%;
-    margin: 5px 0;
-  }
-}
-
-@media (max-width: 480px) {
-  #studentTable th,
-  #studentTable td {
-    padding: 8px;
-  }
-
-  button {
-    font-size: 14px;
-  }
+#studentCount {
+  text-align: right;
+  font-weight: 600;
+  color: #555;
 }
 
 .profile-img {
@@ -209,4 +156,72 @@ button#cancelBtn:hover {
   border-radius: 50%;
   border: 2px solid #ccc;
   background-color: #f0f0f0;
+  margin: auto;
+  display: block;
+}
+
+#profileImg:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #studentTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .actions button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+#profileImg:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .address-wrapper {
+    grid-column: span 1 !important;
+  }
+}
+
+.address-wrapper {
+  grid-column: span 2;
+}
+
+textarea {
+  resize: none;
 }
